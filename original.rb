@@ -1,3 +1,5 @@
+require 'pry'
+
 class Book
   
   attr_accessor :title, :genre
@@ -7,14 +9,14 @@ class Book
 
   def initialize(title, genre)
     @title = title
-    @@books << title
+    self.class.all << self #why only the title goes in? I guesses the genre also goes in.
     GENRES << genre
     
   end
 
   def self.all
-    puts @@books
-    puts GENRES
+    @@books
+     #GENRES
   end
 
 
@@ -27,4 +29,8 @@ end
 
 takeshi = Book.new("Takeshi", "Comedy")
 etsu = Book.new("Etsu", "Hisrory")
- p Book.all
+
+ takeshi.show_all
+
+ binding.pry
+ "test"
